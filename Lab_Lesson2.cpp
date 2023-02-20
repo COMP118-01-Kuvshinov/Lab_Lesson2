@@ -6,10 +6,11 @@
 using namespace std;
 
 void drawHorizontalLine(int, char);
+void drawVerticalLine(int, char);
 
 int main()
 {
-    int choice, length;
+    int choice, length, height;
     char ch;
 
     cout << "1) Draw a horizontal line\n"
@@ -27,13 +28,20 @@ int main()
         cout << "Enter a length of the line: ";
         cin >> length;
 
-        cout << "Enter a character for the line: ";
+        cout << "Enter a character for the horizontal line: ";
         cin >> ch;
 
         drawHorizontalLine(length, ch);
 
         break;
     case 2:
+        cout << "Enter a height of the line: ";
+        cin >> height;
+
+        cout << "Enter a chacter for the vertical line: ";
+        cin >> ch;
+
+        drawVerticalLine(height, ch);
         break;
     case 3:
         break;
@@ -55,4 +63,12 @@ void drawHorizontalLine(int length, char ch)
         cout << ch;
     }
     cout << endl;
+}
+
+void drawVerticalLine(int height, char ch)
+{
+    for (int i = 0; i < height; i++)
+    {
+        cout << ch << endl;
+    }
 }
