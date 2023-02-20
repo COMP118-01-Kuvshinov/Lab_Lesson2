@@ -8,6 +8,7 @@ using namespace std;
 void drawHorizontalLine(int, char);
 void drawVerticalLine(int, char);
 void drawSquare(int, char);
+void drawRectangle(int, int, char);
 
 int main()
 {
@@ -54,6 +55,15 @@ int main()
         drawSquare(size, ch);
         break;
     case 4:
+        cout << "Enter a length of the rectangle: ";
+        cin >> length;
+        cout << "Enter a heigth of the rectangle: ";
+        cin >> height;
+
+        cout << "Enter a chacter for the rectangle: ";
+        cin >> ch;
+
+        drawRectangle(height, length, ch);
         break;
     case 5:
         break;
@@ -94,6 +104,32 @@ void drawSquare(int size, char ch)
             else
             {
                 if (j == 0 || j == size - 1)
+                {
+                    cout << ch << " ";
+                }
+                else
+                {
+                    cout << "  ";
+                }
+            }
+        }
+        cout << endl;
+    }
+}
+
+void drawRectangle(int height, int length, char ch)
+{
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < length; j++)
+        {
+            if (i == 0 || i == height - 1)
+            {
+                cout << ch << " ";
+            }
+            else
+            {
+                if (j == 0 || j == length - 1)
                 {
                     cout << ch << " ";
                 }
