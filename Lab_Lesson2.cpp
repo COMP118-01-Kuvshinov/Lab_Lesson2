@@ -9,13 +9,13 @@ const int MAX_SHAPES = 10;
 
 void drawHorizontalLine(int, char);
 void drawVerticalLine(int, char);
-void drawSquare(int, char);
-void drawRectangle(int, int, char);
+void drawSquare(int, char, int);
+void drawRectangle(int, int, char, int);
 void drawShapes();
 
 int main()
 {
-    int choice = 0, length, height, size;
+    int choice = 0, length, height, size, isFilled;
     char ch;
 
     while (choice != 6)
@@ -79,7 +79,16 @@ int main()
             cout << "Enter a chacter for the square: ";
             cin >> ch;
 
-            drawSquare(size, ch);
+            cout << "Enter 1 for the square to be filled or 0 for the empty square: ";
+            cin >> isFilled;
+
+            while (isFilled != 0 && isFilled != 1)
+            {
+                cout << "Invalid input! Enter a valid value: ";
+                cin >> isFilled;
+            }
+
+            drawSquare(size, ch, isFilled);
             cout << endl;
 
             break;
@@ -105,7 +114,16 @@ int main()
             cout << "Enter a chacter for the rectangle: ";
             cin >> ch;
 
-            drawRectangle(height, length, ch);
+            cout << "Enter 1 for the rectangle to be filled or 0 for the empty rectangle: ";
+            cin >> isFilled;
+
+            while (isFilled != 0 && isFilled != 1)
+            {
+                cout << "Invalid input! Enter a valid value: ";
+                cin >> isFilled;
+            }
+
+            drawRectangle(height, length, ch, isFilled);
             cout << endl;
 
             break;
@@ -143,7 +161,7 @@ void drawVerticalLine(int height, char ch)
     }
 }
 
-void drawSquare(int size, char ch)
+void drawSquare(int size, char ch, int isFilled)
 {
     for (int i = 0; i < size; i++)
     {
@@ -159,9 +177,13 @@ void drawSquare(int size, char ch)
                 {
                     cout << ch << " ";
                 }
-                else
+                else if (isFilled == 0)
                 {
                     cout << "  ";
+                }
+                else
+                {
+                    cout << ch << " ";
                 }
             }
         }
@@ -169,7 +191,7 @@ void drawSquare(int size, char ch)
     }
 }
 
-void drawRectangle(int height, int length, char ch)
+void drawRectangle(int height, int length, char ch, int isFilled)
 {
     for (int i = 0; i < height; i++)
     {
@@ -185,9 +207,13 @@ void drawRectangle(int height, int length, char ch)
                 {
                     cout << ch << " ";
                 }
-                else
+                else if (isFilled == 0)
                 {
                     cout << "  ";
+                }
+                else
+                {
+                    cout << ch << " ";
                 }
             }
         }
@@ -199,7 +225,7 @@ void drawShapes()
 {
     srand(time(0));
 
-    int fun, length, height;
+    int fun, length, height, isFilled;
     char ch;
     
     cout << endl;
@@ -210,6 +236,7 @@ void drawShapes()
         length = rand() % 20 + 1;
         height = rand() % 20 + 1;
         ch = rand() % 93 + 33;
+        isFilled = rand() % 2;
 
         switch (fun)
         {
@@ -224,12 +251,12 @@ void drawShapes()
 
             break;
         case 3:
-            drawSquare(length, ch);
+            drawSquare(length, ch, isFilled);
             cout << endl;
 
             break;
         case 4:
-            drawRectangle(height, length, ch);
+            drawRectangle(height, length, ch, isFilled);
             cout << endl;
 
             break;
