@@ -7,10 +7,11 @@ using namespace std;
 
 void drawHorizontalLine(int, char);
 void drawVerticalLine(int, char);
+void drawSquare(int, char);
 
 int main()
 {
-    int choice, length, height;
+    int choice, length, height, size;
     char ch;
 
     cout << "1) Draw a horizontal line\n"
@@ -44,6 +45,13 @@ int main()
         drawVerticalLine(height, ch);
         break;
     case 3:
+        cout << "Enter a size of the square: ";
+        cin >> size;
+
+        cout << "Enter a chacter for the square: ";
+        cin >> ch;
+
+        drawSquare(size, ch);
         break;
     case 4:
         break;
@@ -70,5 +78,31 @@ void drawVerticalLine(int height, char ch)
     for (int i = 0; i < height; i++)
     {
         cout << ch << endl;
+    }
+}
+
+void drawSquare(int size, char ch)
+{
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            if (i == 0 || i == size - 1)
+            {
+                cout << ch << " ";
+            }
+            else
+            {
+                if (j == 0 || j == size - 1)
+                {
+                    cout << ch << " ";
+                }
+                else
+                {
+                    cout << "  ";
+                }
+            }
+        }
+        cout << endl;
     }
 }
