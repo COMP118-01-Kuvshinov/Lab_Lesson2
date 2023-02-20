@@ -66,6 +66,7 @@ int main()
         drawRectangle(height, length, ch);
         break;
     case 5:
+        cout << "Goodbye!" << endl;
         break;
     default:
         break;
