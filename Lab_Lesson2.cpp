@@ -12,64 +12,106 @@ void drawRectangle(int, int, char);
 
 int main()
 {
-    int choice, length, height, size;
+    int choice = 0, length, height, size;
     char ch;
 
-    cout << "1) Draw a horizontal line\n"
-        << "2) Draw a vertical line\n"
-        << "3) Draw a square\n"
-        << "4) Draw a rectangle\n"
-        << "5) Quit\n";
-
-    cout << "Enter your choice: ";
-    cin >> choice;
-
-    switch (choice)
+    while (choice != 5)
     {
-    case 1:
-        cout << "Enter a length of the line: ";
-        cin >> length;
+        cout << "1) Draw a horizontal line\n"
+            << "2) Draw a vertical line\n"
+            << "3) Draw a square\n"
+            << "4) Draw a rectangle\n"
+            << "5) Quit\n";
 
-        cout << "Enter a character for the horizontal line: ";
-        cin >> ch;
+        cout << "Enter your choice: ";
+        cin >> choice;
 
-        drawHorizontalLine(length, ch);
+        switch (choice)
+        {
+        case 1:
+            cout << "Enter a length of the line: ";
+            cin >> length;
 
-        break;
-    case 2:
-        cout << "Enter a height of the line: ";
-        cin >> height;
+            while (length <= 0)
+            {
+                cout << "Invalid input! Enter a valid value: ";
+                cin >> length;
+            }
 
-        cout << "Enter a chacter for the vertical line: ";
-        cin >> ch;
+            cout << "Enter a character for the horizontal line: ";
+            cin >> ch;
 
-        drawVerticalLine(height, ch);
-        break;
-    case 3:
-        cout << "Enter a size of the square: ";
-        cin >> size;
+            drawHorizontalLine(length, ch);
+            cout << endl;
 
-        cout << "Enter a chacter for the square: ";
-        cin >> ch;
+            break;
+        case 2:
+            cout << "Enter a height of the line: ";
+            cin >> height;
 
-        drawSquare(size, ch);
-        break;
-    case 4:
-        cout << "Enter a length of the rectangle: ";
-        cin >> length;
-        cout << "Enter a heigth of the rectangle: ";
-        cin >> height;
+            while (height <= 0)
+            {
+                cout << "Invalid input! Enter a valid value: ";
+                cin >> height;
+            }
 
-        cout << "Enter a chacter for the rectangle: ";
-        cin >> ch;
+            cout << "Enter a chacter for the vertical line: ";
+            cin >> ch;
 
-        drawRectangle(height, length, ch);
-        break;
-    case 5:
-        cout << "Goodbye!" << endl;
-        break;
-    default:
-        break;
+            drawVerticalLine(height, ch);
+            cout << endl;
+
+            break;
+        case 3:
+            cout << "Enter a size of the square: ";
+            cin >> size;
+
+            while (size <= 0)
+            {
+                cout << "Invalid input! Enter a valid value: ";
+                cin >> size;
+            }
+
+            cout << "Enter a chacter for the square: ";
+            cin >> ch;
+
+            drawSquare(size, ch);
+            cout << endl;
+
+            break;
+        case 4:
+            cout << "Enter a length of the rectangle: ";
+            cin >> length;
+
+            while (length <= 0)
+            {
+                cout << "Invalid input! Enter a valid value: ";
+                cin >> length;
+            }
+
+            cout << "Enter a heigth of the rectangle: ";
+            cin >> height;
+
+            while (height <= 0)
+            {
+                cout << "Invalid input! Enter a valid value: ";
+                cin >> height;
+            }
+
+            cout << "Enter a chacter for the rectangle: ";
+            cin >> ch;
+
+            drawRectangle(height, length, ch);
+            cout << endl;
+
+            break;
+        case 5:
+            cout << "Goodbye!" << endl;
+            break;
+        default:
+            cout << "Invalid value for the choice!\n\n";
+            break;
+        }
     }
 
     return 0;
