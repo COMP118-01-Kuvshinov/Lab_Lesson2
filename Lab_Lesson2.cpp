@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    char choice;
+    int choice;
 
     cout << "1) Draw a horizontal line\n"
         << "2) Draw a vertical line\n"
