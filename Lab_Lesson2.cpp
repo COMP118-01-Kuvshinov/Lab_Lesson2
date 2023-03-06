@@ -159,7 +159,7 @@ int main()
 * @param length The length of the horizontal line [>= 2]
 * @param ch The symbol used to draw the horizntal line
 */
-void drawHorizontalLine(int length, char ch)
+void drawHorizontalLine(const int length, const char ch)
 {
     for (int i = 0; i < length; i++)
     {
@@ -175,7 +175,7 @@ void drawHorizontalLine(int length, char ch)
 * @param height The height of the vertical line [>= 2]
 * @param ch The symbol used to draw the horizntal line
 */
-void drawVerticalLine(int height, char ch)
+void drawVerticalLine(const int height, const char ch)
 {
     for (int i = 0; i < height; i++)
     {
@@ -191,7 +191,7 @@ void drawVerticalLine(int height, char ch)
 * @param isFilled The choice for the square to be
 * filled with symbols or not [0 || 1]
 */
-void drawSquare(int size, char ch, int isFilled)
+void drawSquare(const int size, const char ch, const int isFilled)
 {
     for (int i = 0; i < size; i++)
     {
@@ -231,7 +231,7 @@ void drawSquare(int size, char ch, int isFilled)
 * @param isFilled The choice for the rectangle to be
 * filled with symbols or not [0 || 1]
 */
-void drawRectangle(int height, int length, char ch, int isFilled)
+void drawRectangle(const int height, const int length, const char ch, const int isFilled)
 {
     for (int i = 0; i < height; i++)
     {
