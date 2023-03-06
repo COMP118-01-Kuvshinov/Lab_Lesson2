@@ -20,7 +20,12 @@ void drawSquare(int, char, int);
 void drawRectangle(int, int, char, int);
 void drawShapes();
 
-// driver
+/**
+* Function <code>Main</code> shows a manu and then
+* accepts choice from the user.
+* <BR>
+* @return Returns <code>0</code>
+*/
 int main()
 {
     int choice = 0, length, height, size, isFilled;
