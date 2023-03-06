@@ -1,18 +1,26 @@
-﻿// Lab_Lesson2.cpp
-// name: Igor
+﻿/* file: Lab_Lesson2.cpp
+ * name: Igor
+ * breif: Small drawing program
+ * details: Small ASCII drawing program
+ * date: 06.03.2023
+ * copyright University of Nicosia
+ */
 
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
 const int MAX_SHAPES = 10;
 
+// functions prototypes
 void drawHorizontalLine(int, char);
 void drawVerticalLine(int, char);
 void drawSquare(int, char, int);
 void drawRectangle(int, int, char, int);
 void drawShapes();
 
+// driver
 int main()
 {
     int choice = 0, length, height, size, isFilled;
@@ -36,7 +44,7 @@ int main()
             cout << "Enter a length of the line: ";
             cin >> length;
 
-            while (length <= 0)
+            while (length <= 1)
             {
                 cout << "Invalid input! Enter a valid value: ";
                 cin >> length;
@@ -53,7 +61,7 @@ int main()
             cout << "Enter a height of the line: ";
             cin >> height;
 
-            while (height <= 0)
+            while (height <= 1)
             {
                 cout << "Invalid input! Enter a valid value: ";
                 cin >> height;
@@ -70,7 +78,7 @@ int main()
             cout << "Enter a size of the square: ";
             cin >> size;
 
-            while (size <= 0)
+            while (size <= 1)
             {
                 cout << "Invalid input! Enter a valid value: ";
                 cin >> size;
@@ -96,7 +104,7 @@ int main()
             cout << "Enter a length of the rectangle: ";
             cin >> length;
 
-            while (length <= 0)
+            while (length <= 1)
             {
                 cout << "Invalid input! Enter a valid value: ";
                 cin >> length;
@@ -105,7 +113,7 @@ int main()
             cout << "Enter a heigth of the rectangle: ";
             cin >> height;
 
-            while (height <= 0)
+            while (height <= 1)
             {
                 cout << "Invalid input! Enter a valid value: ";
                 cin >> height;
@@ -144,6 +152,13 @@ int main()
     return 0;
 }
 
+/**
+* Function <code>drawHorizontalLine</code> draws a horizontal
+* line.
+* <BR>
+* @param length The length of the horizontal line [>= 2]
+* @param ch The symbol used to draw the horizntal line
+*/
 void drawHorizontalLine(int length, char ch)
 {
     for (int i = 0; i < length; i++)
@@ -153,6 +168,13 @@ void drawHorizontalLine(int length, char ch)
     cout << endl;
 }
 
+/**
+* Function <code>drawVerticalLine</code> draws a vertical
+* line.
+* <BR>
+* @param height The height of the vertical line [>= 2]
+* @param ch The symbol used to draw the horizntal line
+*/
 void drawVerticalLine(int height, char ch)
 {
     for (int i = 0; i < height; i++)
@@ -161,6 +183,14 @@ void drawVerticalLine(int height, char ch)
     }
 }
 
+/**
+* Function <code>drawSquare</code> draws a square
+* <BR>
+* @param size The dimention of the square [>= 2]
+* @param ch The symbol used to draw the square
+* @param isFilled The choice for the square to be
+* filled with symbols or not [0 || 1]
+*/
 void drawSquare(int size, char ch, int isFilled)
 {
     for (int i = 0; i < size; i++)
@@ -191,6 +221,16 @@ void drawSquare(int size, char ch, int isFilled)
     }
 }
 
+/**
+* Function <code>drawRectangle</code> draws a
+* rectangle.
+* <BR>
+* @param height The height of the rectangle [>= 2]
+* @param length The length of the rectangle [>= 2]
+* @param ch The symbol used to draw the rectangle
+* @param isFilled The choice for the rectangle to be
+* filled with symbols or not [0 || 1]
+*/
 void drawRectangle(int height, int length, char ch, int isFilled)
 {
     for (int i = 0; i < height; i++)
@@ -221,6 +261,12 @@ void drawRectangle(int height, int length, char ch, int isFilled)
     }
 }
 
+/**
+* Function <code>drawShapes</code> draws random
+* shapes with random symbols, random height, random
+* length and random parameter for a shape to be filled
+* or not.
+*/
 void drawShapes()
 {
     srand(time(0));
@@ -235,7 +281,7 @@ void drawShapes()
         fun = rand() % 4 + 1;
         length = rand() % 20 + 1;
         height = rand() % 20 + 1;
-        ch = rand() % 93 + 33;
+        ch = rand() % 94 + 33;
         isFilled = rand() % 2;
 
         switch (fun)
