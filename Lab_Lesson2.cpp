@@ -19,6 +19,7 @@ void drawVerticalLine(int, char);
 void drawSquare(int, char, int);
 void drawRectangle(int, int, char, int);
 void drawShapes();
+void initializeArrays(int[], int[], int[], char[], int[]);
 
 /**
 * Function <code>Main</code> shows a manu and then
@@ -166,11 +167,18 @@ int main()
 */
 void drawHorizontalLine(const int length, const char ch)
 {
-    for (int i = 0; i < length; i++)
+    assert(length >= 2);
+    assert(ch >= 33 & ch <= 126);
+
+    int i = 0;
+
+    for (i; i < length; i++)
     {
         cout << ch;
     }
     cout << endl;
+
+    assert(length == i);
 }
 
 /**
@@ -198,6 +206,9 @@ void drawVerticalLine(const int height, const char ch)
 */
 void drawSquare(const int size, const char ch, const int isFilled)
 {
+    assert(size >= 2); // Pre-condition
+    assert(ch >= 33 && ch <= 126);
+
     for (int i = 0; i < size; i++)
     {
         for (int j = 0; j < size; j++)
@@ -274,46 +285,65 @@ void drawRectangle(const int height, const int length, const char ch, const int 
 */
 void drawShapes()
 {
-    srand(time(0));
-
-    int fun, length, height, isFilled;
-    char ch;
+    int fun[MAX_SHAPES], length[MAX_SHAPES], height[MAX_SHAPES], isFilled[MAX_SHAPES];
+    char ch[MAX_SHAPES];
     
     cout << endl;
 
     for (int i = 0; i < MAX_SHAPES; i++)
     {
-        fun = rand() % 4 + 1;
-        length = rand() % 20 + 1;
-        height = rand() % 20 + 1;
-        ch = rand() % 94 + 33;
-        isFilled = rand() % 2;
+        initializeArrays(fun, length, height, ch, isFilled);
 
-        switch (fun)
+        switch (fun[i])
         {
         case 1:
-            drawHorizontalLine(length, ch);
+            drawHorizontalLine(length[i], ch[i]);
             cout << endl;
 
             break;
         case 2:
-            drawVerticalLine(length, ch);
+            drawVerticalLine(length[i], ch[i]);
             cout << endl;
 
             break;
         case 3:
-            drawSquare(length, ch, isFilled);
+            drawSquare(length[i], ch[i], isFilled[i]);
             cout << endl;
 
             break;
         case 4:
-            drawRectangle(height, length, ch, isFilled);
+            drawRectangle(height[i], length[i], ch[i], isFilled[i]);
             cout << endl;
 
             break;
         default:
+            assert(false);
             cout << "Invalid value for the choice!\n\n";
             break;
         }
+    }
+}
+
+/**
+* Function <code>initializeArrays</code> fills arrays
+* with random values in the function drawShapes
+* @param shapeTy[] The array of shape types [1 <= && <= 4]
+* @param shapeLen[] The array of shapes length [1 <= && <= 20]
+* @param shapeHei[] The array of shapes height [1 <= && <= 20]
+* @param shapeCh[] The array of shape symbols [33 <= && <= 126]
+* @param shapeFill[] The array of values to define if
+* the shape is filled or not [0 <= && <= 1]
+*/
+void initializeArrays(int shapeTy[MAX_SHAPES], int shapeLen[MAX_SHAPES], int shapeHei[MAX_SHAPES], char shapeCh[MAX_SHAPES], int shapeFill[MAX_SHAPES])
+{
+    srand(time(0));
+
+    for (int i = 0; i < MAX_SHAPES; i++)
+    {
+        shapeTy[i] = rand() % 4 + 1;
+        shapeLen[i] = rand() % 19 + 2;
+        shapeHei[i] = rand() % 19 + 2;
+        shapeCh[i] = rand() % 94 + 33;
+        shapeFill[i] = rand() % 2;
     }
 }
