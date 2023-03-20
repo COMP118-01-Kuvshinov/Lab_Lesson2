@@ -1,9 +1,10 @@
-﻿/* file: Lab_Lesson2.cpp
- * name: Igor
- * breif: Small drawing program
- * details: Small ASCII drawing program
- * date: 06.03.2023
- * copyright University of Nicosia
+﻿/** \file Lab_Lesson2.cpp
+ *  \brief Small drawing program
+ *  \details Small ASCII drawing program
+ *  \author Igor
+ *  \version 0.1
+ *  \date 06.03.2023
+ *  \copyright University of Nicosia
  */
 
 #include <iostream>
@@ -19,7 +20,7 @@ void drawVerticalLine(int, char);
 void drawSquare(int, char, int);
 void drawRectangle(int, int, char, int);
 void drawShapes();
-void initializeArrays(int[], int[], int[], char[], int[]);
+void initializeArrays(int[MAX_SHAPES], int[MAX_SHAPES], int[MAX_SHAPES], char[MAX_SHAPES], int[MAX_SHAPES]);
 
 /**
 * Function <code>Main</code> shows a manu and then
